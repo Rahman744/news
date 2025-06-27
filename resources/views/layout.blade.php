@@ -39,8 +39,8 @@
 <div class="container-xl py-3">
     <div style="background-image: url('{{ asset('images/bg.jpg') }}'); background-size: cover; background-position: center; height: 350px;">
         <div class="text-white p-5">
-            <h6>EVERY WEEKDAY</h6>
-            <div class="py-3 display-5 fw-semibold">
+            <h6 class="fw-bold">EVERY WEEKDAY</h6>
+            <div class="py-3 display-4 fw-semibold">
                 The Overview: A newsletter for our curious world
             </div>
             <form method="POST" action="#" class="d-flex ">
