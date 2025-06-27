@@ -69,11 +69,11 @@
         </div>
         <hr style="border-top: 2px solid #198754; margin: 0;">
         <div class="d-flex justify-content-center align-items-center gap-5 fw-semibold py-3">
-            <a href="" class="text-white" style="text-decoration: none;">ABOUT US</a>
-            <a href="" class="text-white" style="text-decoration: none;">CONTACT US</a>
-            <a href="" class="text-white" style="text-decoration: none;">DONATE</a>
-            <a href="" class="text-white" style="text-decoration: none;">PRIVACY POLICY</a>
-            <a href="" class="text-white" style="text-decoration: none;">TERMS & CONDITIONS</a>
+            <a href="#" class="text-white" style="text-decoration: none;">ABOUT US</a>
+            <a href="#" class="text-white" style="text-decoration: none;">CONTACT US</a>
+            <a href="#" class="text-white" style="text-decoration: none;">DONATE</a>
+            <a href="#" class="text-white" style="text-decoration: none;">PRIVACY POLICY</a>
+            <a href="#" class="text-white" style="text-decoration: none;">TERMS & CONDITIONS</a>
         </div>
         <hr style="border-top: 2px solid #198754; margin: 0;">
         <div class="text-white fw-semibold py-3" style="font-size: 13px;">
