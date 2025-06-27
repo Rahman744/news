@@ -43,9 +43,10 @@
             <div class="py-3 display-4 fw-semibold">
                 The Overview: A newsletter for our curious world
             </div>
-            <form method="POST" action="#" class="d-flex ">
+            <form method="post" action="/check" class="d-flex">
+                @csrf
                 <div class="input-group w-auto">
-                    <input type="email" class="form-control rounded-start" placeholder="Email" required>
+                    <input type="email" name="email" id="email" class="form-control rounded-start" placeholder="Email">
                     <button class="btn btn-success rounded-end" type="submit">Subscribe</button>
                 </div>
                 <span class="p-2 mx-5 bg-black fw-bolder"><a href="#" class="text-white mx-5 ps-5 pe-5" style="text-decoration: none;">VIEW PAST NEWSLETTERS</a></span>
