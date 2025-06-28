@@ -32,6 +32,13 @@
 </div>
 <hr style="width: 100vw; border: none; border-top: 2px solid #198754; margin: 0;">
 
+@if(session('message'))
+    <div class="alert alert-{{ session('message_type') }} text-center">
+        {{ session('message') }}
+    </div>
+@endif
+
+
 <div>
     @yield('main_content')
 </div>
@@ -49,7 +56,7 @@
                     <input type="email" name="email" id="email" class="form-control rounded-start" placeholder="Email">
                     <button class="btn btn-success rounded-end" type="submit">Subscribe</button>
                 </div>
-                <span class="p-2 mx-5 bg-black fw-bolder"><a href="#" class="text-white mx-5 ps-5 pe-5" style="text-decoration: none;">VIEW PAST NEWSLETTERS</a></span>
+                <span class="p-2 mx-5 bg-black fw-bolder"><a href="https://turkmenportal.com/tm/blog/tazelikler" class="text-white mx-5 ps-5 pe-5" style="text-decoration: none;">VIEW PAST NEWSLETTERS</a></span>
             </form>
         </div>
     </div>

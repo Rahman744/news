@@ -19,11 +19,27 @@ class NewsController extends Controller
         return view('watch_now');
     }
 
-    public function check(Request $request) {
-        $review = new Subscribes(); // Указываем правильную модель
-        $review->email = $request->input('email');
-        $review->save();
+    public function check(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
 
-        return redirect()->back()->with('success', 'Вы успешно подписались!');
+        if (\App\Models\Subscribes::where('email', $request->email)->exists()) {
+            return redirect()->back()->with([
+                'message' => 'Вы уже подписаны.',
+                'message_type' => 'danger'
+            ]);
+        }
+
+        $subscribe = new \App\Models\Subscribes();
+        $subscribe->email = $request->email;
+        $subscribe->save();
+
+        return redirect()->back()->with([
+            'message' => 'Вы подписались успешно!',
+            'message_type' => 'success'
+        ]);
     }
+
 }
