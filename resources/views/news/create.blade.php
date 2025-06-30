@@ -20,7 +20,7 @@
             @csrf
 
             <div class="mb-3">
-                <input type="text" name="country" class="form-control" placeholder="Country">
+                <input type="text" name="country" class="form-control" placeholder="Country" required>
             </div>
 
             <div class="mb-3">
