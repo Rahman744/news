@@ -9,7 +9,7 @@ Route::get('/watch', [NewsController::class, 'watch_now']);
 
 Route::post('/check', [NewsController::class, 'check']);
 
-Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+Route::get('/create', [NewsController::class, 'create'])->name('news.create');
 
 Route::post('/news', [NewsController::class, 'store'])->name('news.store');
 

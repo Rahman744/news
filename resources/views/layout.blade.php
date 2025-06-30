@@ -21,7 +21,7 @@
                     <li><a class="dropdown-item" href="/">Home</a></li>
                     <li><a class="dropdown-item" href="/latest">Latest Stories</a></li>
                     <li><a class="dropdown-item" href="/watch">Watch Now</a></li>
-                    <li><a class="dropdown-item" href="/news/create">Add_news</a></li>
+                    <li><a class="dropdown-item" href="/create">Add_news</a></li>
                 </ul>
             </div>
 

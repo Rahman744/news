@@ -28,8 +28,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="content" class="form-label">Main text</label>
-                <textarea id="news_content" name="news_content" class="form-control" rows="5" required>{{ old('news_content') }}</textarea>
+                <textarea id="news_content" name="news_content" class="form-control" rows="5" placeholder="Main text" required>{{ old('news_content') }}</textarea>
             </div>
 
 
