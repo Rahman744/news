@@ -21,6 +21,7 @@
                     <li><a class="dropdown-item" href="/">Home</a></li>
                     <li><a class="dropdown-item" href="/latest">Latest Stories</a></li>
                     <li><a class="dropdown-item" href="/watch">Watch Now</a></li>
+                    <li><a class="dropdown-item" href="/news/create">Add_news</a></li>
                 </ul>
             </div>
 
@@ -32,9 +33,12 @@
 </div>
 <hr style="width: 100vw; border: none; border-top: 2px solid #198754; margin: 0;">
 
-@if(session('message'))
-    <div class="alert alert-{{ session('message_type') }} text-center">
-        {{ session('message') }}
+@if (session('message'))
+    <div class="container mt-3">
+        <div class="alert alert-{{ session('message_type', 'success') }} alert-dismissible fade show" role="alert" id="flash-message">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+        </div>
     </div>
 @endif
 
@@ -92,6 +96,20 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Скрыть уведомление через 4 секунды
+    setTimeout(function() {
+        let alert = document.getElementById('flash-message');
+        if (alert) {
+            alert.classList.remove('show');
+            alert.classList.add('fade');
+            setTimeout(() => alert.remove(), 300); // Удалить из DOM через 0.3 сек
+        }
+    }, 3000); // 4000 миллисекунд = 4 секунды
+</script>
+
+
 </body>
 
 </html>
