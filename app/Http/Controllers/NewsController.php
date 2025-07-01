@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Subscribes;
+use App\Http\Controllers\Controller;  // обязательно
 use App\Models\News;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
 
 class NewsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['create', 'store']);
+    }
+
     public function home()
     {
         $news = News::latest()->take(6)->get();
