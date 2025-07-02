@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <div class="container-xl">
+    <div class="container-xl pe-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
-            <div class="container-fluid">
+            <div class="container-fluid pe-5">
                 <div class="dropdown">
                     <button class="text-success fw-bold h4" style="background: transparent; border: none;" data-bs-toggle="dropdown" aria-expanded="false">
                         ☰
@@ -46,7 +46,7 @@
 
                 </div>
 
-                <div class="mx-auto text-center">
+                <div class="mx-auto text-center pe-5">
                     <img src="{{ asset('images/logo.png') }}" alt="bluemarble" class="img-fluid w-75">
                 </div>
             </div>
@@ -55,7 +55,7 @@
     <hr style="width: 100vw; border: none; border-top: 2px solid #198754; margin: 0;">
 
     @if (session('message'))
-    <div class="container mt-3">
+    <div class="container mt-3" id="flash-container">
         <div class="alert alert-{{ session('message_type', 'success') }} alert-dismissible fade show" role="alert" id="flash-message">
             {{ session('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
@@ -64,6 +64,7 @@
     @endif
 
 
+    @if (!request()->is('login') && !request()->is('register'))
     <div>
         @yield('main_content')
     </div>
@@ -115,19 +116,30 @@
         </div>
     </div>
 
+    @else
+    {{-- Если login или register --}}
+    <div class="container mt-5">
+        @yield('main_content')
+    </div>
+    @endif
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Скрыть уведомление через 4 секунды
         setTimeout(function() {
             let alert = document.getElementById('flash-message');
-            if (alert) {
+            let container = document.getElementById('flash-container');
+
+            if (alert && container) {
                 alert.classList.remove('show');
                 alert.classList.add('fade');
-                setTimeout(() => alert.remove(), 300); // Удалить из DOM через 0.3 сек
+
+                setTimeout(() => {
+                    container.remove(); // удаляем контейнер с отступом
+                }, 300); // подождать завершения fade
             }
-        }, 3000); // 4000 миллисекунд = 4 секунды
+        }, 3000);
     </script>
 
 

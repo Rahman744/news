@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;  // обязательно
 use App\Models\News;
+use App\Models\Subscribes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,12 +22,14 @@ class NewsController extends Controller
         return view('home', compact('news'));
     }
 
-    public function latest_stories() {
+    public function latest_stories()
+    {
         $news = News::latest()->get();
         return view('latest_stories', compact('news'));
     }
 
-    public function watch_now() {
+    public function watch_now()
+    {
         return view('watch_now');
     }
 
@@ -55,11 +58,20 @@ class NewsController extends Controller
 
     public function create()
     {
+        if (!auth()->user() || !auth()->user()->is_admin) {
+            abort(403, 'Access denied');
+        }
+
         return view('news.create');
     }
 
+
     public function store(Request $request)
     {
+        if (!auth()->user() || !auth()->user()->is_admin) {
+            abort(403, 'Access denied');
+        }
+        
         $request->validate([
             'country' => 'required|string|max:255',
             'title' => 'required|string|max:255',
